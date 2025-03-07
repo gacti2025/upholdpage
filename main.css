@@ -1,0 +1,489 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #F0F3F8;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.container {
+    margin: auto;
+    max-width: 1080px;
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-grow: 1;
+}
+
+.bg-svg {
+    position: absolute;
+    z-index: -1;
+}
+
+.leftdiv {
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.leftdiv h1 {
+    color: rgb(60, 74, 91);
+    font-size: 32px;
+    letter-spacing: -0.2px;
+    line-height: 40px;
+    font-weight: 700;
+    margin-top: 0px;
+    font-weight: 600;
+    max-width: 450px;
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    z-index: 10;
+}
+
+h2 {
+    color: rgb(60, 74, 91);
+    font-size: 24px;
+    letter-spacing: -0.2px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+.leftdiv p {
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    line-height: 28px;
+    color: rgb(104, 119, 141);
+    margin-top: 8px;
+    max-width: 440px;
+}
+
+.rightdiv {
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+form,
+.loginForm {
+    background-color: #fff;
+    width: 100%;
+    height: 80vh;
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    line-height: 20px;
+    color: rgb(104, 119, 141);
+    margin-top: 8px;
+}
+
+a {
+    font-weight: 600;
+    border-radius: 4px;
+    display: inline;
+    flex-direction: row;
+    color: rgb(73, 204, 104);
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.f-passwrod {
+    font-size: 16px;
+    display: block;
+}
+
+input {
+    background-color: transparent;
+    color: rgb(60, 74, 91);
+    font-family: proxima-nova;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+    line-height: 20px;
+    border: 0px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 12px 14px;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+}
+
+.hkMNOF {
+    border-color: rgb(188, 202, 216);
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 2px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+
+.phn {
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+
+}
+
+label {
+    color: rgb(104, 119, 141);
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    line-height: 16px;
+    left: 8px;
+    position: absolute;
+    top: -6px;
+    margin: 0px;
+    padding: 0px 8px;
+    z-index: 1;
+    background-color: transparent;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+    z-index: 999;
+    background-color: #fff;
+}
+
+button,
+.submitbt {
+    align-items: center;
+    border-radius: 9999px;
+    border-width: 1px;
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+    gap: 8px;
+    justify-content: center;
+    padding: 9px 23px;
+    width: 100%;
+    background-color: rgb(73, 204, 104);
+    border-color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    cursor: pointer;
+    pointer-events: all;
+    color: #fff;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #F0F3F8;
+    position: relative;
+    bottom: 0;
+}
+
+.footer a {
+    color: rgb(60, 74, 91);
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        position: static;
+        padding: 20px 0;
+    }
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .leftdiv {
+        display: none;
+    }
+
+    .rightdiv {
+        width: 100%;
+    }
+
+    form,
+    .loginForm {
+        height: auto;
+        padding: 20px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .footer {
+        position: static;
+        padding: 20px 0;
+    }
+}
+
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.753);
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* From Uiverse.io by barisdogansutcu */
+.loader svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 9s linear infinite;
+}
+
+.loader svg circle {
+    fill: none;
+    stroke: rgb(73, 204, 104);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash4 {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
+}
+
+
+.contaner-2 {
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.heroBanner {
+    background-image: url('./Images/hero-banner.png');
+    min-height: 600px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+nav {
+    position: fixed;
+    top: 30px;
+    z-index: 9999;
+    left: 0;
+    background-color: rgb(20, 28, 41);
+    padding: 10px;
+    width: 1400px;
+    max-width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+
+.logo-area {
+    width: 130px;
+    line-height: 0;
+}
+
+.logo-area {
+    max-width: 100%;
+}
+
+.links {
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.links p {
+    margin-top: 0;
+    color: #fff;
+    font-size: 900;
+    font-size: 18px;
+}
+
+.links .active {
+    color: #84fb7f;
+}
+
+.links p a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.links button {
+    padding: 8px 14px;
+    color: #000;
+    font-weight: bold;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+section .contaner-2 img {
+
+    max-width: 100%;
+}
+
+.dark {
+    background-color: #090D14;
+    ;
+}
+
+@media screen and (max-width:1078px) {
+    .links {
+        scale: 0.7;
+    }
+}
+
+@media screen and (max-width:1050px) {
+    .links {
+        scale: 1;
+    }
+
+    nav {
+        width: 100%;
+        top: 0;
+        position: sticky;
+        left: 0;
+        transform: translateX(0);
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .center {
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .links {
+        scale: 0.8;
+        position: absolute;
+        right: 2px;
+        justify-content: flex-end;
+    }
+
+    .logo-area {
+        max-width: 100px;
+    }
+
+}
+
+
+.popupcall {
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000009f;
+    z-index: 9999999;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.popupbox {
+    width: 620px;
+    padding: 40px;
+    border-radius: 12px;
+    background-color: #fff;
+    text-align: center;
+    animation: open 1s ease-in-out;
+}
+
+.popupbox h3 {
+    color: #c21717;
+    font-weight: normal;
+}
+
+@keyframes open {
+    0%{
+        scale: 0;
+        opacity: 0;
+    }
+    
+    100%{
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+.login-lnk{
+ 
+    position: static;
+    text-decoration: underline !important;
+    font-weight: normal !important;
+}
